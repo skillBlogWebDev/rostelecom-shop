@@ -1,0 +1,47 @@
+.actions {
+  position: relative;
+
+  &__btn {
+    z-index: 2;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 24px;
+    background-color: #1D2533;
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+
+    &::before {
+      background-color: #E8E9EA;
+      content: '';
+      height: 100%;
+      width: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    &_favorite::before {
+      -webkit-mask: url(/img/favorites.svg) no-repeat 50% 50%;
+      mask: url(/img/favorites.svg) no-repeat 50% 50%;
+    }
+
+    &_comparison::before {
+      -webkit-mask: url(/img/comparison.svg) no-repeat 50% 50%;
+      mask: url(/img/comparison.svg) no-repeat 50% 50%;
+    }
+
+    &_quick_view::before {
+      -webkit-mask: url(/img/quick-view.svg) no-repeat 50% 50%;
+      mask: url(/img/quick-view.svg) no-repeat 50% 50%;
+    }
+
+    &:hover::before {
+      transition: background-color 0.2s ease-in-out;
+      background-color: #16D9A6;
+    }
+  }
+}

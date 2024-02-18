@@ -1,0 +1,37 @@
+.skeleton {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skeleton__item {
+  background-color: #2A323F;
+  overflow: hidden !important;
+  padding: 0;
+  height: 185px;
+  margin-bottom: 25px;
+
+  @media (max-width: 530px) {
+    height: 145px;
+    margin-bottom: 12px;
+  }
+}
+
+.skeleton__item__light {
+  height: 100%;
+  animation-duration: 1.6s;
+  background: linear-gradient(90deg, #333a47 25%, #464f61 50%, #333A47 75%);
+  background-size: 200% 100%;
+  animation: skeleton 2s infinite ease-in-out;
+}
+
+
+@keyframes skeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

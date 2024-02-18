@@ -1,0 +1,224 @@
+.footer {
+  margin-top: auto;
+}
+
+.footer__top {
+  padding-top: 15px;
+  padding-bottom: 30px;
+  background-color: #333A47;
+}
+
+.footer__top__container {
+  display: flex;
+  align-items: center;
+}
+
+.footer__logo, .footer__contacts {
+  width: 25%;
+}
+
+.footer__contacts, .footer__links {
+  padding-top: 22px;
+  transition: color .2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__links {
+  width: 30%;
+}
+
+.footer__contacts a:hover, .footer__links a:hover {
+  color: #9466FF;
+  transition: color .2s ease-in-out;
+}
+
+.footer__contacts a, .footer__links a {
+  color: #E8E9EA;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.footer__contacts span:first-child, .footer__links span:first-child {
+  margin-bottom: 12px;
+}
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+}
+
+.footer__socials__item:not(:last-child) {
+  margin-right: 32px;
+}
+
+.footer__socials__item__link {
+  position: relative;
+  display: block;
+  border: 2px solid #565C66;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  transition: border-color .2s ease-in-out;
+}
+
+.footer__socials__item__link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #E8E9EA;
+}
+
+.footer__socials__item:first-child .footer__socials__item__link::before {
+  -webkit-mask: url(/img/telegram.svg) no-repeat 50% 50%;
+  mask: url(/img/telegram.svg) no-repeat 50% 50%;
+}
+
+.footer__socials__item:nth-child(2) .footer__socials__item__link::before {
+  -webkit-mask: url(/img/vk.svg) no-repeat 50% 50%;
+  mask: url(/img/vk.svg) no-repeat 50% 50%;
+}
+
+.footer__socials__item:last-child .footer__socials__item__link::before {
+  -webkit-mask: url(/img/ytb.svg) no-repeat 50% 50%;
+  mask: url(/img/ytb.svg) no-repeat 50% 50%;
+}
+
+.footer__socials__item__link:hover::before {
+  transition: background-color 0.2s ease-in-out;
+  background-color: #9466FF;
+}
+
+.footer__socials__item__link:hover {
+  border-color: #9466FF;
+  transition: border-color .2s ease-in-out;
+}
+
+.footer__bottom {
+  padding-top: 16px;
+  padding-bottom: 40px;
+  background-color: #242C39;
+}
+
+.footer__bottom__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.footer__copyright {
+  color: #A5A8AD;
+  font-size: 12px;
+}
+
+.footer__policy__inner, .footer__mobile {
+  display: flex;
+}
+
+.footer__policy__inner a, .footer__mobile a {
+  text-decoration: none;
+  color: #A5A8AD;
+  font-size: 12px;
+  transition: color .2s ease-in-out;
+}
+
+.footer__policy__inner a:hover, .footer__mobile a:hover {
+  color: #9466FF;
+  transition: color .2s ease-in-out;
+}
+
+.footer__policy__inner a:first-child {
+  margin-right: 32px;
+}
+
+@media (max-width: 950px) {
+  .footer__links {
+    padding-top: 0;
+    width: auto;
+  }
+
+  .footer__logo, .footer__contacts {
+    width: auto;
+  }
+
+  .footer__contacts span:nth-child(2) {
+    margin-bottom: 12px;
+  }
+
+  .footer__top__container {
+    justify-content: space-between;
+  }
+
+  .footer__policy__inner {
+    flex-direction: column;
+  }
+
+  .footer__policy__inner a:first-child {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .footer__bottom {
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer__top__container {
+    flex-direction: column;
+  }
+
+  .footer__links, .footer__contacts {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .footer__logo {
+    margin-bottom: 32px;
+  }
+
+  .footer__contacts span:first-child, .footer__links span:first-child {
+    margin-bottom: 8px;
+  }
+
+  .footer__contacts {
+    margin-bottom: 32px;
+  }
+
+  .footer__links {
+    margin-top: 32px;
+  }
+
+  .footer__bottom__container {
+    flex-direction: column-reverse;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer__policy__inner {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 24px;
+  }
+
+  .footer__policy {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .footer__mobile {
+    display: block;
+  }
+
+  .footer__policy__inner a:first-child {
+    margin-right: 18px;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,31 @@
+.tooltip {
+  position: absolute;
+  top: -6px;
+  width: max-content;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background-color: #3D4555;
+  z-index: 10;
+
+  &__inner {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      right: -30px;
+      transform: rotate(90deg);
+      height: 8px;
+      width: 30px;
+      background-image: url(/img/popup-arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  }
+
+  &__text {
+    color: rgba(255, 255, 255, 0.90);
+    font-size: 14px;
+  }
+}

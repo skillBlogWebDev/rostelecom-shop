@@ -1,0 +1,69 @@
+.header-profile__popup {
+  position: relative;
+  height: 24px;
+  width: 24px;
+}
+
+.header-profile__arrow {
+  position: absolute;
+  top: -8px;
+  right: 10px;
+  width: 14px;
+  height: 8px;
+  background-image: url(/img/popup-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.header-profile__inner {
+  background-color: #3D4555;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+  padding: 0;
+  margin: 0;
+  padding: 12px !important;
+  border-radius: 8px;
+  position: absolute;
+  top: 72px;
+  right: -7px;
+  transform-origin: top right;
+}
+
+.header-profile__btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.header-profile__btn img {
+  width: 100%;
+  height: 100%;
+}
+
+.header-profile__item:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.header-profile__item__btn {
+  display: flex;
+  align-items: center;
+}
+
+.header-profile__item__btn__icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.header-profile__item__btn{
+  color: #E8E9EA;
+  transition: color .2s ease-in-out;
+}
+
+.header-profile__item__btn:hover {
+  color: #9466FF;
+  transition: color .2s ease-in-out;
+}

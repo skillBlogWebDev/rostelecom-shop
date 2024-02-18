@@ -1,0 +1,21 @@
+.ad {
+  position: absolute;
+  top: -80px;
+  right: 15px;
+  padding: 2px 4px;
+  padding-right: 27px;
+  height: 28px;
+  line-height: 24px;
+  background-image: url('/img/info-icon.svg');
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  color: #A5A8AD;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 30px;
+  background-color: rgba(16, 24, 40, 0.40);
+
+  @media (max-width: 760px) {
+    top: -20px;
+  }
+}
