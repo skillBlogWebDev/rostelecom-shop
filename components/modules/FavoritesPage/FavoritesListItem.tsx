@@ -18,6 +18,7 @@ import { IProduct } from '@/types/common'
 import {
   deleteProductFromFavorites,
   setFavoritesFromLS,
+  setShouldShowEmptyFavorites,
 } from '@/context/favorites'
 import { useProductDelete } from '@/hooks/useProductDelete'
 
@@ -75,6 +76,7 @@ const FavoritesListItem = ({ item }: { item: IFavoriteItem }) => {
         item.clientId,
         'favorites',
         setFavoritesFromLS,
+        setShouldShowEmptyFavorites,
         'Удалено из избранного!'
       )
       return
@@ -85,6 +87,7 @@ const FavoritesListItem = ({ item }: { item: IFavoriteItem }) => {
       item.clientId,
       'favorites',
       setFavoritesFromLS,
+      setShouldShowEmptyFavorites,
       '',
       false
     )
