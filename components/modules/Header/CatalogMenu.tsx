@@ -1,5 +1,6 @@
 'use client'
 import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link'
 import { useState } from 'react'
 import { useUnit } from 'effector-react'
 import { $catalogMenuIsOpen, closeCatalogMenu } from '@/context/modals'
@@ -11,14 +12,10 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 import CatalogMenuButton from './CatalogMenuButton'
 import CatalogMenuList from './CatalogMenuList'
 import Accordion from '../Accordion/Accordion'
-import Link from 'next/link'
 
 const CatalogMenu = () => {
   const catalogMenuIsOpen = useUnit($catalogMenuIsOpen)
-  const [showClothList, setShowClothList] = useState(false)
-  const [showAccessoriesList, setShowAccessoriesList] = useState(false)
-  const [showSouvenirsList, setShowSouvenirsList] = useState(false)
-  const [showOfficeList, setShowOfficeList] = useState(false)
+  const [activeListId, setActiveListId] = useState(0)
   const { lang, translations } = useLang()
   const { itemVariants, sideVariants, popupZIndex } = useMenuAnimation(
     2,
@@ -26,42 +23,13 @@ const CatalogMenu = () => {
   )
   const isMedia450 = useMediaQuery(450)
 
-  const handleShowClothList = () => {
-    setShowClothList(true)
-    setShowAccessoriesList(false)
-    setShowSouvenirsList(false)
-    setShowOfficeList(false)
-  }
-
-  const handleShowAccessoriesList = () => {
-    setShowClothList(false)
-    setShowAccessoriesList(true)
-    setShowSouvenirsList(false)
-    setShowOfficeList(false)
-  }
-
-  const handleShowSouvenirsList = () => {
-    setShowClothList(false)
-    setShowAccessoriesList(false)
-    setShowSouvenirsList(true)
-    setShowOfficeList(false)
-  }
-
-  const handleShowOfficeList = () => {
-    setShowClothList(false)
-    setShowAccessoriesList(false)
-    setShowSouvenirsList(false)
-    setShowOfficeList(true)
-  }
-
   const handleCloseMenu = () => {
     removeOverflowHiddenFromBody()
     closeCatalogMenu()
-    setShowClothList(false)
-    setShowAccessoriesList(false)
-    setShowSouvenirsList(false)
-    setShowOfficeList(false)
+    setActiveListId(0)
   }
+
+  const isActiveList = (id: number) => activeListId === id
 
   const items = [
     {
@@ -73,7 +41,7 @@ const CatalogMenu = () => {
         translations[lang].comparison.hoodie,
         translations[lang].comparison.outerwear,
       ],
-      handler: handleShowClothList,
+      handler: () => setActiveListId(1),
     },
     {
       name: translations[lang].main_menu.accessories,
@@ -83,7 +51,7 @@ const CatalogMenu = () => {
         translations[lang].comparison.headdress,
         translations[lang].comparison.umbrella,
       ],
-      handler: handleShowAccessoriesList,
+      handler: () => setActiveListId(2),
     },
     {
       name: translations[lang].main_menu.souvenirs,
@@ -92,7 +60,7 @@ const CatalogMenu = () => {
         translations[lang].comparison['business-souvenirs'],
         translations[lang].comparison['promotional-souvenirs'],
       ],
-      handler: handleShowSouvenirsList,
+      handler: () => setActiveListId(3),
     },
     {
       name: translations[lang].main_menu.office,
@@ -101,7 +69,7 @@ const CatalogMenu = () => {
         translations[lang].comparison.notebook,
         translations[lang].comparison.pen,
       ],
-      handler: handleShowOfficeList,
+      handler: () => setActiveListId(4),
     },
   ]
   return (
@@ -163,38 +131,38 @@ const CatalogMenu = () => {
                         <>
                           {id === 1 && (
                             <CatalogMenuButton
-                              {...buttonProps(showClothList)}
+                              {...buttonProps(isActiveList(1))}
                             />
                           )}
                           {id === 2 && (
                             <CatalogMenuButton
-                              {...buttonProps(showAccessoriesList)}
+                              {...buttonProps(isActiveList(2))}
                             />
                           )}
                           {id === 3 && (
                             <CatalogMenuButton
-                              {...buttonProps(showSouvenirsList)}
+                              {...buttonProps(isActiveList(3))}
                             />
                           )}
                           {id === 4 && (
                             <CatalogMenuButton
-                              {...buttonProps(showOfficeList)}
+                              {...buttonProps(isActiveList(4))}
                             />
                           )}
                         </>
                       )}
                       {!isMedia450 && (
                         <AnimatePresence>
-                          {isCurrentList(showClothList, 1) && (
+                          {isCurrentList(isActiveList(1), 1) && (
                             <CatalogMenuList items={items} />
                           )}
-                          {isCurrentList(showAccessoriesList, 2) && (
+                          {isCurrentList(isActiveList(2), 2) && (
                             <CatalogMenuList items={items} />
                           )}
-                          {isCurrentList(showSouvenirsList, 3) && (
+                          {isCurrentList(isActiveList(3), 3) && (
                             <CatalogMenuList items={items} />
                           )}
-                          {isCurrentList(showOfficeList, 4) && (
+                          {isCurrentList(isActiveList(4), 4) && (
                             <CatalogMenuList items={items} />
                           )}
                         </AnimatePresence>

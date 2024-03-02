@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 'use client'
 import { useUnit } from 'effector-react'
 import { motion } from 'framer-motion'
@@ -11,23 +12,26 @@ import EmptyPageContent from '@/components/modules/EmptyPageContent/EmptyPageCon
 import OrderInfoBlock from '@/components/modules/OrderInfoBlock/OrderInfoBlock'
 import { basePropsForMotion } from '@/constants/motion'
 import { useBreadcrumbs } from '@/hooks/useBreadcrumbs'
-import { useCartByAuth } from '@/hooks/useCartByAuth'
 import { useLang } from '@/hooks/useLang'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { countWholeCartItemsAmount } from '@/lib/utils/cart'
-import { $shouldShowEmpty } from '@/context/cart'
-import styles from '@/styles/cart-page/index.module.scss'
+import { $cart, $cartFromLs, $shouldShowEmpty } from '@/context/cart'
+import { useGoodsByAuth } from '@/hooks/useGoodsByAuth'
 import cartSkeletonStyles from '@/styles/cart-skeleton/index.module.scss'
+import styles from '@/styles/cart-page/index.module.scss'
+import { loginCheckFx } from '@/api/auth'
+import { isUserAuth } from '@/lib/utils/common'
 
 const CartPage = () => {
   const cartSpinner = useUnit(getCartItemsFx.pending)
-  const currentCartByAuth = useCartByAuth()
+  const currentCartByAuth = useGoodsByAuth($cart, $cartFromLs)
   const { lang, translations } = useLang()
   const { getDefaultTextGenerator, getTextGenerator } = useBreadcrumbs('cart')
   const isMedia930 = useMediaQuery(930)
   const [isCorrectPromotionalCode, setIsCorrectPromotionalCode] =
     useState(false)
   const shouldShowEmpty = useUnit($shouldShowEmpty)
+  const loginCheckSpinner = useUnit(loginCheckFx.pending)
 
   return (
     <main>
@@ -45,7 +49,9 @@ const CartPage = () => {
             />
             <div className={styles.cart__inner}>
               <div className={styles.cart__left}>
-                {cartSpinner && (
+                {(isUserAuth()
+                  ? cartSpinner || loginCheckSpinner
+                  : cartSpinner) && (
                   <motion.ul
                     {...basePropsForMotion}
                     className={cartSkeletonStyles.skeleton}

@@ -16,9 +16,7 @@ import BuyersListItems from './BuyersListItems'
 import ContactsListItems from './ContactsListItems'
 
 const Menu = () => {
-  const [showCatalogList, setShowCatalogList] = useState(false)
-  const [showBuyersList, setShowBuyersList] = useState(false)
-  const [showContactsList, setShowContactsList] = useState(false)
+  const [activeListId, setActiveListId] = useState(0)
   const menuIsOpen = useUnit($menuIsOpen)
   const { lang, translations } = useLang()
   const pathname = usePathname()
@@ -33,27 +31,14 @@ const Menu = () => {
   const handleSwitchLangToRu = () => handleSwitchLang('ru')
   const handleSwitchLangToEn = () => handleSwitchLang('en')
 
-  const handleShowCatalogList = () => {
-    setShowCatalogList(true)
-    setShowBuyersList(false)
-    setShowContactsList(false)
-  }
-
-  const handleShowBuyersList = () => {
-    setShowCatalogList(false)
-    setShowBuyersList(true)
-    setShowContactsList(false)
-  }
-
-  const handleShowContactsList = () => {
-    setShowCatalogList(false)
-    setShowBuyersList(false)
-    setShowContactsList(true)
-  }
+  const handleShowCatalogList = () => setActiveListId(1)
+  const handleShowBuyersList = () => setActiveListId(2)
+  const handleShowContactsList = () => setActiveListId(3)
 
   const handleCloseMenu = () => {
     removeOverflowHiddenFromBody()
     closeMenu()
+    setActiveListId(0)
   }
 
   const handleRedirectToCatalog = (path: string) => {
@@ -175,7 +160,7 @@ const Menu = () => {
                 {translations[lang].main_menu.catalog}
               </button>
               <AnimatePresence>
-                {showCatalogList && (
+                {activeListId === 1 && (
                   <motion.ul
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -262,7 +247,7 @@ const Menu = () => {
             )}
             {!isMedia640 && (
               <AnimatePresence>
-                {showBuyersList && (
+                {activeListId === 2 && (
                   <motion.ul
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -296,7 +281,7 @@ const Menu = () => {
             )}
             {!isMedia640 && (
               <AnimatePresence>
-                {showContactsList && (
+                {activeListId === 3 && (
                   <motion.ul
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

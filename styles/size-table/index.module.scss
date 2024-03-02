@@ -104,6 +104,10 @@
     }
   }
 
+  &__btn_favorite {
+    min-width: 143px;
+  }
+
   &__btn_added {
     background-color: #16D9A6 !important;
     pointer-events: none;
@@ -146,6 +150,17 @@
         transition: background-color .2s ease-in-out;
       }
     }
+  }
+
+  &__favorite {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    height: 18px;
+    width: 18px;
+    background-image: url(/img/checked-favorite.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }
 

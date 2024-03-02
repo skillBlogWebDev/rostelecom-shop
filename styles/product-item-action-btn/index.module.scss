@@ -29,6 +29,17 @@
       mask: url(/img/favorites.svg) no-repeat 50% 50%;
     }
 
+    &_favorite_checked::before {
+      background-color: #FF4747;
+      position: absolute;
+      left: 7px;
+      top: 7px;
+      height: 18px;
+      width: 18px;
+      -webkit-mask: url(/img/checked-favorite.svg) no-repeat 50% 50%;
+      mask: url(/img/checked-favorite.svg) no-repeat 50% 50%;
+    }
+
     &_comparison::before {
       -webkit-mask: url(/img/comparison.svg) no-repeat 50% 50%;
       mask: url(/img/comparison.svg) no-repeat 50% 50%;
@@ -43,5 +54,14 @@
       transition: background-color 0.2s ease-in-out;
       background-color: #16D9A6;
     }
+
+    &.actions__btn_favorite_checked:hover::before {
+      transition: background-color 0.2s ease-in-out;
+      background-color: #FF4747;
+    }
+  }
+
+  &__btn_spinner::before {
+    content: none;
   }
 }

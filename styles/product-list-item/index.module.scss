@@ -46,6 +46,7 @@
       display: flex;
       flex-direction: column;
       transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+      z-index: 1;
 
       @media (max-width: 800px) {
         opacity: 1;

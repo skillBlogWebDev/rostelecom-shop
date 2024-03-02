@@ -15,10 +15,12 @@
   }
 
   &__left {
+    min-height: 605px;
     grid-column: 1 / 9;
 
     @media (max-width: 930px) {
       margin-bottom: 24px;
+      min-height: auto;
     }
   }
 
@@ -70,7 +72,6 @@
         padding-bottom: 12px;
         margin-bottom: 12px;
       }
-
 
       &__delete {
         position: absolute;

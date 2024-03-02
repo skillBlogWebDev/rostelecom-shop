@@ -106,11 +106,7 @@ body::-webkit-scrollbar-thumb:hover {
   z-index: 2;
 }
 
-.size-table-overlay.overlay-active {
-  z-index: 10;
-}
-
-.auth-overlay.overlay-active {
+.auth-overlay.overlay-active, .size-table-overlay.overlay-active {
   z-index: 100;
 }
 
@@ -231,6 +227,11 @@ body::-webkit-scrollbar-thumb:hover {
 .not-empty-mobile {
   top: 12px;
   right: 15px;
+}
+
+.not-empty-mobile-favorite {
+  top: 12px;
+  right: 25px;
 }
 
 .quick-modal-dots li.slick-active button {
