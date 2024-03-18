@@ -19,8 +19,8 @@ import { useLang } from '@/hooks/useLang'
 import cartSkeletonStyles from '@/styles/cart-skeleton/index.module.scss'
 import styles from '@/styles/favorites/index.module.scss'
 import FavoritesList from '@/components/modules/FavoritesPage/FavoritesList'
-import { loginCheckFx } from '@/api/auth'
 import { isUserAuth } from '@/lib/utils/common'
+import { loginCheckFx } from '@/context/user'
 
 const FavoritesPage = () => {
   const currentFavoritesByAuth = useGoodsByAuth($favorites, $favoritesFromLS)

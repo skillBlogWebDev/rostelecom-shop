@@ -29,13 +29,16 @@
       mask: url(/img/favorites.svg) no-repeat 50% 50%;
     }
 
-    &_favorite_checked::before {
-      background-color: #FF4747;
+    &_favorite_checked::before, &_comparison_checked::before {
       position: absolute;
       left: 7px;
       top: 7px;
       height: 18px;
       width: 18px;
+    }
+
+    &_favorite_checked::before {
+      background-color: #FF4747;
       -webkit-mask: url(/img/checked-favorite.svg) no-repeat 50% 50%;
       mask: url(/img/checked-favorite.svg) no-repeat 50% 50%;
     }
@@ -43,6 +46,12 @@
     &_comparison::before {
       -webkit-mask: url(/img/comparison.svg) no-repeat 50% 50%;
       mask: url(/img/comparison.svg) no-repeat 50% 50%;
+    }
+
+    &_comparison_checked::before {
+      background-color: #26da72;
+      -webkit-mask: url(/img/comparison-checked.svg) no-repeat 50% 50%;
+      mask: url(/img/comparison-checked.svg) no-repeat 50% 50%;
     }
 
     &_quick_view::before {

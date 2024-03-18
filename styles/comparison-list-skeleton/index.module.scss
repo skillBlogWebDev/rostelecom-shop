@@ -1,0 +1,60 @@
+.skeleton {
+  display: flex;
+  align-items: start;
+  margin-bottom: 40px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.skeleton::-webkit-scrollbar {
+  height: 8px;
+}
+
+.skeleton::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.skeleton::-webkit-scrollbar-thumb {
+  background-color: #9466FF;
+  border-radius: 3px;
+}
+
+.skeleton::-webkit-scrollbar-thumb:hover {
+  background-color: #70F;
+}
+
+.skeleton__item {
+  background-color: #2A323F;
+  overflow: hidden !important;
+  padding: 0;
+  height: 600px;
+  min-width: 478px;
+
+  @media (max-width: 730px) {
+    min-width: 289px;
+    width: 289px;
+  }
+}
+
+.skeleton__item:not(:last-child) {
+  margin-right: 32px;
+
+  @media (max-width: 730px) {
+    margin-right: 16px;
+  }
+}
+
+.skeleton__item__light {
+  height: 100%;
+  animation-duration: 1.6s;
+  background: linear-gradient(270deg, #ffffff0c 34.78%, rgba(255, 255, 255, 0.06) 60.33%, #ffffff0c 84.84%);
+  animation-name: skeleton;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes skeleton {
+  0% {transform: translateX(-600px)}
+  100% {transform: translateX(700px)}
+}
