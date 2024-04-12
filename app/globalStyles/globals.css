@@ -291,3 +291,15 @@ body::-webkit-scrollbar-thumb:hover {
   overflow-y: hidden;
   padding-right: 8px;
 }
+
+.catalog-pagination-prev.disabled, .catalog-pagination-next.disabled {
+  display: none;
+}
+
+.catalog-pagination-item.selected {
+  background-color: #9466FF;
+}
+
+.catalog-pagination-item:hover.selected a {
+  background-color: #9466FF;
+}

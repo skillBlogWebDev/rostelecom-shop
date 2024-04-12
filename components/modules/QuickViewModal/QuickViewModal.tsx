@@ -1,6 +1,6 @@
+import Link from 'next/link'
 import { closeQuickViewModal } from '@/context/modals'
 import { formatPrice, removeOverflowHiddenFromBody } from '@/lib/utils/common'
-import styles from '@/styles/quick-view-modal/index.module.scss'
 import QuickViewModalSlider from './QuickViewModalSlider'
 import { useCartAction } from '@/hooks/useCartAction'
 import { useProductImages } from '@/hooks/useProductImages'
@@ -12,12 +12,13 @@ import ProductSizeTableBtn from '../ProductsListItem/ProductSizeTableBtn'
 import ProductSizesItem from '../ProductsListItem/ProductSizesItem'
 import ProductCounter from '../ProductsListItem/ProductCounter'
 import AddToCartBtn from '../ProductsListItem/AddToCartBtn'
-import Link from 'next/link'
-import stylesForProduct from '@/styles/product-list-item/index.module.scss'
 import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn'
 import { ICartItem } from '@/types/cart'
 import { useComparisonAction } from '@/hooks/useComparisonAction'
 import { useFavoritesAction } from '@/hooks/useFavoritesAction'
+import { setIsAddToFavorites } from '@/context/favorites'
+import stylesForProduct from '@/styles/product-list-item/index.module.scss'
+import styles from '@/styles/quick-view-modal/index.module.scss'
 
 const QuickViewModal = () => {
   const { lang, translations } = useLang()
@@ -51,7 +52,10 @@ const QuickViewModal = () => {
     closeQuickViewModal()
   }
 
-  const addToCart = () => handleAddToCart(count)
+  const addToCart = () => {
+    setIsAddToFavorites(false)
+    handleAddToCart(count)
+  }
 
   return (
     <div className={styles.modal}>

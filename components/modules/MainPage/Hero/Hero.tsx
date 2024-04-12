@@ -12,6 +12,7 @@ import HeroSlide from './HeroSlide'
 import ProductSubtitle from '@/components/elements/ProductSubtitle/ProductSubtitle'
 import styles from '@/styles/main-page/index.module.scss'
 import stylesForAd from '@/styles/ad/index.module.scss'
+import productSubtitleStyles from '@/styles/productSubtitle/index.module.scss'
 
 const Hero = () => {
   const { lang, translations } = useLang()
@@ -67,7 +68,12 @@ const Hero = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <ProductSubtitle />
+        <ProductSubtitle
+          subtitleClassName={productSubtitleStyles.product_subtitle__subtitle}
+          subtitleRectClassName={
+            productSubtitleStyles.product_subtitle__subtitle__rect
+          }
+        />
         <h2 className={styles.hero__title}>
           <span
             className={`${styles.hero__title__subtitle} ${

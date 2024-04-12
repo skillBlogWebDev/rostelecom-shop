@@ -19,3 +19,7 @@ export const productTypes = [
   't-shirts',
   'umbrella',
 ]
+
+export const productCategories = ['cloth', 'accessories', 'office', 'souvenirs']
+export const allowedColors = ['purpure', 'yellow', 'orange', 'black', 'white']
+export const allowedSizes = ['s', 'l', 'm', 'xl', 'xxl']
