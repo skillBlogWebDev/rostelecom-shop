@@ -1,0 +1,35 @@
+.watched {
+  padding-top: 40px;
+  margin-bottom: 40px;
+  position: relative;
+
+  &__title {
+    margin: 0;
+    color: #F1F3F5;
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 40px;
+
+    @media (max-width: 650px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 590px) {
+      margin-bottom: 20px;
+      font-size: 24px;
+      max-width: 200px;
+    }
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__inner > a:first-child {
+    right: 10px;
+  }
+
+  &__slider {
+    margin-right: -15px;
+  }
+}

@@ -17,9 +17,10 @@ import { productsWithoutSizes } from '@/constants/product'
 import { addCartItemToLS } from '@/lib/utils/cart'
 import { IProduct } from '@/types/common'
 import { useMemo, useState } from 'react'
-import { $cart, $cartFromLs, addProductToCart } from '@/context/cart'
+import { addProductToCart } from '@/context/cart'
 import { loadOneProduct } from '@/context/goods'
 import { useGoodsByAuth } from '@/hooks/useGoodsByAuth'
+import { $cart, $cartFromLs } from '@/context/cart/state'
 
 const ComparisonItem = ({ item }: { item: IComparisonItem }) => {
   const currentCartByAuth = useGoodsByAuth($cart, $cartFromLs)

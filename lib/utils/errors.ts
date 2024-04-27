@@ -1,12 +1,12 @@
 /* eslint-disable indent */
-import {
-  addProductToCartFx,
-  deleteCartItemFx,
-  getCartItemsFx,
-} from '@/api/cart'
 import { JWTError } from '@/constants/jwt'
 import { refreshTokenFx } from '@/context/auth'
-import { addProductsFromLSToCartFx } from '@/context/cart'
+import {
+  addProductToCartFx,
+  addProductsFromLSToCartFx,
+  deleteCartItemFx,
+  getCartItemsFx,
+} from '@/context/cart'
 import {
   addProductToComparisonFx,
   getComparisonItemsFx,

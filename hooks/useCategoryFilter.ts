@@ -1,8 +1,8 @@
 import { useUnit } from 'effector-react'
 import { useEffect, useState } from 'react'
-import { $catalogCategoryOptions } from '@/context/catalog'
 import { useLang } from './useLang'
 import { getSearchParamsUrl } from '@/lib/utils/common'
+import { $catalogCategoryOptions } from '@/context/catalog/state'
 
 export const useCategoryFilter = () => {
   const { lang, translations } = useLang()

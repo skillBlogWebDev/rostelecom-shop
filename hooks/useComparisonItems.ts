@@ -1,4 +1,4 @@
-import { $comparison, $comparisonFromLs } from '@/context/comparison'
+import { $comparison, $comparisonFromLs } from '@/context/comparison/state'
 import { useGoodsByAuth } from './useGoodsByAuth'
 
 export const useComparisonItems = (type: string) => {

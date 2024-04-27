@@ -1,21 +1,20 @@
-import { createDomain } from 'effector'
+'use client'
 import {
   ICatalogCategoryOptions,
-  IColorOption,
   ISizeOption,
+  IColorOption,
 } from '@/types/catalog'
-
-const catalog = createDomain()
-
-export const setCatalogCategoryOptions =
-  catalog.createEvent<Partial<ICatalogCategoryOptions>>()
-export const setSizesOptions = catalog.createEvent<ISizeOption[]>()
-export const setColorsOptions = catalog.createEvent<IColorOption[]>()
-export const updateSizesOptionBySize = catalog.createEvent<string>()
-export const updateColorsOptionByCode = catalog.createEvent<string>()
-export const setColors = catalog.createEvent<string[]>()
-export const setSizes = catalog.createEvent<string[]>()
-export const setFiltersPopup = catalog.createEvent<boolean>()
+import {
+  catalog,
+  setCatalogCategoryOptions,
+  setSizesOptions,
+  updateSizesOptionBySize,
+  setColorsOptions,
+  updateColorsOptionByCode,
+  setSizes,
+  setColors,
+  setFiltersPopup,
+} from '.'
 
 export const $catalogCategoryOptions = catalog
   .createStore<ICatalogCategoryOptions>({})

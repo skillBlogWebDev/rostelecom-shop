@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Logo from '@/components/elements/Logo/Logo'
 import { AllowedLangs } from '@/constants/lang'
 import { setLang } from '@/context/lang'
-import { $menuIsOpen, closeMenu } from '@/context/modals'
+import { closeMenu } from '@/context/modals'
 import { useLang } from '@/hooks/useLang'
 import { removeOverflowHiddenFromBody } from '@/lib/utils/common'
 import Accordion from '../Accordion/Accordion'
@@ -14,6 +14,7 @@ import MenuLinkItem from './MenuLinkItem'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import BuyersListItems from './BuyersListItems'
 import ContactsListItems from './ContactsListItems'
+import { $menuIsOpen } from '@/context/modals/state'
 
 const Menu = () => {
   const [activeListId, setActiveListId] = useState(0)

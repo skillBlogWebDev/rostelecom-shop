@@ -1,14 +1,11 @@
 import toast from 'react-hot-toast'
 import { useState } from 'react'
-import {
-  $comparison,
-  $comparisonFromLs,
-  addProductToComparison,
-} from '@/context/comparison'
+import { addProductToComparison } from '@/context/comparison'
 import { IProduct } from '@/types/common'
 import { useGoodsByAuth } from './useGoodsByAuth'
 import { addComparisonItemToLS } from '@/lib/utils/comparison'
 import { isUserAuth } from '@/lib/utils/common'
+import { $comparison, $comparisonFromLs } from '@/context/comparison/state'
 
 export const useComparisonAction = (product: IProduct) => {
   const [addToComparisonSpinner, setAddToComparisonSpinner] = useState(false)

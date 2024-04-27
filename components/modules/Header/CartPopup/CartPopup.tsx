@@ -4,15 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion'
 import { forwardRef } from 'react'
-import { getCartItemsFx } from '@/api/cart'
 import { withClickOutside } from '@/components/hocs/withClickOutside'
 import { useLang } from '@/hooks/useLang'
 import { IWrappedComponentProps } from '@/types/hocs'
 import CartPopupItem from './CartPopupItem'
 import { useTotalPrice } from '@/hooks/useTotalPrice'
 import { formatPrice } from '@/lib/utils/common'
-import { $cart, $cartFromLs } from '@/context/cart'
 import { useGoodsByAuth } from '@/hooks/useGoodsByAuth'
+import { getCartItemsFx } from '@/context/cart'
+import { $cart, $cartFromLs } from '@/context/cart/state'
 
 const CartPopup = forwardRef<HTMLDivElement, IWrappedComponentProps>(
   ({ open, setOpen }, ref) => {

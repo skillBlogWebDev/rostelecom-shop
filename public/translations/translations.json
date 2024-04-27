@@ -78,7 +78,9 @@
       "souvenirs": "Souvenirs",
       "order": "Placing an order",
       "personal_data_policy": "Data processing policy",
-      "privacy_policy": "Privacy policy"
+      "privacy_policy": "Privacy policy",
+      "watched_products": "Watched products",
+      "collection_products": "Products by Collection"
     },
     "footer": {
       "copyright": "«Rostelecom» All rights reserved",
@@ -129,7 +131,8 @@
       "total_in_cart": "Total in cart",
       "more": "More information about the product",
       "composition": "Composition",
-      "in_cart": "Added"
+      "in_cart": "Added",
+      "share": "Share"
     },
     "catalog": {
       "all_categories": "All categories",
@@ -158,7 +161,8 @@
       "previous_page": "Previous page",
       "filters": "Filters",
       "found": "Found",
-      "nothing_found": "Nothing found"
+      "nothing_found": "Nothing found",
+      "collection": "Collection"
     },
     "size_table": {
       "head_circumference": "Head circumference, cm",
@@ -317,7 +321,9 @@
       "souvenirs": "Сувениры",
       "order": "Оформление заказа",
       "personal_data_policy": "Политика обработки данных",
-      "privacy_policy": "Политика конфиденциальности"
+      "privacy_policy": "Политика конфиденциальности",
+      "watched_products": "Просмотренные товары",
+      "collection_products": "Товары по коллекции"
     },
     "footer": {
       "copyright": "«Ростелеком» Все права защищены",
@@ -368,7 +374,8 @@
       "total_in_cart": "Всего в корзине",
       "more": "Больше информации о товаре",
       "composition": "Состав",
-      "in_cart": "Добавлено"
+      "in_cart": "Добавлено",
+      "share": "Поделиться"
     },
     "catalog": {
       "all_categories": "Все категории",
@@ -397,7 +404,8 @@
       "previous_page": "Предыдущая страница",
       "filters": "Фильтры",
       "found": "Найдено",
-      "nothing_found": "Ничего не найдено"
+      "nothing_found": "Ничего не найдено",
+      "collection": "Коллекция"
     },
     "size_table": {
       "head_circumference": "Обхват головы, см",

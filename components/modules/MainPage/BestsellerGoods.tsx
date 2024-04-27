@@ -1,8 +1,8 @@
 import { useUnit } from 'effector-react'
-import { getBestsellerProductsFx } from '@/api/main-page'
-import { $bestsellerProducts } from '@/context/goods'
 import { useLang } from '@/hooks/useLang'
 import MainPageSection from './MainPageSection'
+import { $bestsellerProducts } from '@/context/goods/state'
+import { getBestsellerProductsFx } from '@/context/goods'
 
 const BestsellerGoods = () => {
   const goods = useUnit($bestsellerProducts)

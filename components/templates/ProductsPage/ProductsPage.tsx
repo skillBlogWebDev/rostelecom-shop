@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 'use client'
 import ReactPaginate from 'react-paginate'
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useProductFilters } from '@/hooks/useProductFilters'
 import { IProductsPage } from '@/types/catalog'
@@ -8,11 +9,12 @@ import { basePropsForMotion } from '@/constants/motion'
 import ProductsListItem from '@/components/modules/ProductsListItem/ProductsListItem'
 import { useLang } from '@/hooks/useLang'
 import HeadingWithCount from '@/components/elements/HeadingWithCount/HeadingWithCount'
-import styles from '@/styles/catalog/index.module.scss'
-import skeletonStyles from '@/styles/skeleton/index.module.scss'
-import { useEffect } from 'react'
 import { setCatalogCategoryOptions } from '@/context/catalog'
 import CatalogFilters from '@/components/modules/CatalogFilters/CatalogFilters'
+import { useWatchedProducts } from '@/hooks/useWatchedProducts'
+import WatchedProducts from '@/components/modules/WatchedProducts/WatchedProducts'
+import styles from '@/styles/catalog/index.module.scss'
+import skeletonStyles from '@/styles/skeleton/index.module.scss'
 
 const ProductsPage = ({ searchParams, pageName }: IProductsPage) => {
   const { lang, translations } = useLang()
@@ -27,6 +29,7 @@ const ProductsPage = ({ searchParams, pageName }: IProductsPage) => {
     handleApplyFiltersWithColors,
     handleApplyFiltersBySort,
   } = useProductFilters(searchParams, pageName, pageName === 'catalog')
+  const { watchedProducts } = useWatchedProducts()
 
   useEffect(() => {
     switch (pageName) {
@@ -198,6 +201,9 @@ const ProductsPage = ({ searchParams, pageName }: IProductsPage) => {
           onPageChange={handlePageChange}
         />
       </div>
+      {!!watchedProducts.items?.length && (
+        <WatchedProducts watchedProducts={watchedProducts} />
+      )}
     </>
   )
 }

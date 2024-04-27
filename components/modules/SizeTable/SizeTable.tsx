@@ -2,17 +2,18 @@
 /* eslint-disable indent */
 import toast from 'react-hot-toast'
 import { useUnit } from 'effector-react'
-import { $sizeTableSizes } from '@/context/sizeTable'
 import { useCartAction } from '@/hooks/useCartAction'
-import { $showQuickViewModal } from '@/context/modals'
 import { closeSizeTableByCheck, isUserAuth } from '@/lib/utils/common'
 import { useLang } from '@/hooks/useLang'
 import AddToCartBtn from '../ProductsListItem/AddToCartBtn'
 import ProductCountBySize from '../ProductsListItem/ProductCountBySize'
-import { $favorites, $favoritesFromLS, $isAddToFavorites, addProductToFavorites } from '@/context/favorites'
+import { addProductToFavorites } from '@/context/favorites'
 import { useGoodsByAuth } from '@/hooks/useGoodsByAuth'
 import { addFavoriteItemToLS } from '@/lib/utils/favorites'
 import { useFavoritesAction } from '@/hooks/useFavoritesAction'
+import { $isAddToFavorites, $favorites, $favoritesFromLS } from '@/context/favorites/state'
+import { $showQuickViewModal } from '@/context/modals/state'
+import { $sizeTableSizes } from '@/context/sizeTable/state'
 import styles from '@/styles/size-table/index.module.scss'
 
 const SizeTable = () => {

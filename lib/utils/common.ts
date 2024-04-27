@@ -4,6 +4,7 @@ import { closeAuthPopup, openAuthPopup, setIsAuth } from '@/context/auth'
 import { setCurrentProduct } from '@/context/goods'
 import {
   closeSearchModal,
+  closeShareModal,
   closeSizeTable,
   showSizeTable,
 } from '@/context/modals'
@@ -218,4 +219,24 @@ export const getCheckedArrayParam = (param: string) => {
   } catch (error) {
     return false
   }
+}
+
+export const capitalizeFirstLetter = (str: string) =>
+  str.charAt(0).toUpperCase() + str.slice(1)
+
+export const getWatchedProductFromLS = () => {
+  let watchedProducts: IProduct[] = JSON.parse(
+    localStorage.getItem('watched') as string
+  )
+
+  if (!watchedProducts || !Array.isArray(watchedProducts)) {
+    watchedProducts = []
+  }
+
+  return watchedProducts
+}
+
+export const handleCloseShareModal = () => {
+  removeOverflowHiddenFromBody()
+  closeShareModal()
 }

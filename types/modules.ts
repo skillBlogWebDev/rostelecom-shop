@@ -64,3 +64,8 @@ export interface IContentTitleProps {
   title: string
   oopsWord: string
 }
+
+export interface IProductInfoLabelProps {
+  color: string
+  className?: string
+}

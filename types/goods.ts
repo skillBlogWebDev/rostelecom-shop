@@ -4,7 +4,7 @@ import { IProduct } from './common'
 export interface ILoadOneProductFx {
   productId: string
   category: string
-  setSpinner: (arg0: boolean) => void
+  setSpinner?: (arg0: boolean) => void
   withShowingSizeTable?: boolean
 }
 
@@ -52,4 +52,8 @@ export interface ILoadProductsByFilterFx {
 export interface IProducts {
   count: number
   items: IProduct[]
+}
+
+export interface ILoadWatchedProductsFx {
+  payload: { _id: string; category: string }[]
 }

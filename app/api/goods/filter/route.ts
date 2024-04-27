@@ -1,9 +1,9 @@
+import { Sort } from 'mongodb'
+import { NextResponse } from 'next/server'
 import { allowedColors, allowedSizes } from '@/constants/product'
 import clientPromise from '@/lib/mongodb'
 import { getDbAndReqBody } from '@/lib/utils/api-routes'
 import { checkPriceParam, getCheckedArrayParam } from '@/lib/utils/common'
-import { Sort } from 'mongodb'
-import { NextResponse } from 'next/server'
 
 export async function GET(req: Request) {
   try {
@@ -18,6 +18,7 @@ export async function GET(req: Request) {
     const priceToParam = url.searchParams.get('priceTo')
     const sizesParam = url.searchParams.get('sizes')
     const colorsParam = url.searchParams.get('colors')
+    const collectionParam = url.searchParams.get('collection')
     const sortParam = url.searchParams.get('sort') || 'default'
     const isFullPriceRange =
       priceFromParam &&
@@ -46,6 +47,9 @@ export async function GET(req: Request) {
           ['characteristics.color']: color.toLowerCase(),
         })),
       }),
+      ...(collectionParam && {
+        ['characteristics.collection']: collectionParam,
+      }),
     }
     const sort = {
       ...(sortParam.includes('cheap_first') && {
@@ -66,7 +70,7 @@ export async function GET(req: Request) {
       const getFilteredCollection = async (collection: string) => {
         const goods = await db
           .collection(collection)
-          .find(filter)
+          .find()
           .sort(sort as Sort)
           .toArray()
 
@@ -97,7 +101,25 @@ export async function GET(req: Request) {
         ...accessories.value,
         ...office.value,
         ...souvenirs.value,
-      ]
+      ].sort((a, b) => {
+        if (sortParam.includes('cheap_first')) {
+          return +a.price - +b.price
+        }
+
+        if (sortParam.includes('expensive_first')) {
+          return +b.price - +a.price
+        }
+
+        if (sortParam.includes('new')) {
+          return Number(b.isNew) - Number(a.isNew)
+        }
+
+        if (sortParam.includes('popular')) {
+          return +b.popularity - +a.popularity
+        }
+
+        return 0
+      })
 
       return NextResponse.json({
         count: allGoods.length,

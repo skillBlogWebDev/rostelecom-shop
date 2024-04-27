@@ -1,6 +1,6 @@
 import { useUnit } from 'effector-react'
 import { useState, useEffect } from 'react'
-import { $user } from '@/context/user'
+import { $user } from '@/context/user/state'
 
 export const useUserAvatar = () => {
   const user = useUnit($user)

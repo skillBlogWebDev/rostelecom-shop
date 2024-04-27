@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { IFavoriteItem } from '@/types/favorites'
-import { $cart, $cartFromLs, addProductToCart } from '@/context/cart'
+import { addProductToCart } from '@/context/cart'
 import { useGoodsByAuth } from '@/hooks/useGoodsByAuth'
 import DeleteItemBtn from '@/components/elements/DeleteCartItemBtn/DeleteCartItemBtn'
 import AddToCartIcon from '@/components/elements/AddToCartIcon/AddToCartIcon'
@@ -21,6 +21,7 @@ import {
   setShouldShowEmptyFavorites,
 } from '@/context/favorites'
 import { useProductDelete } from '@/hooks/useProductDelete'
+import { $cart, $cartFromLs } from '@/context/cart/state'
 
 const FavoritesListItem = ({ item }: { item: IFavoriteItem }) => {
   const currentCartByAuth = useGoodsByAuth($cart, $cartFromLs)

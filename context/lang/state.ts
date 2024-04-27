@@ -1,10 +1,6 @@
 'use client'
 import { AllowedLangs } from '@/constants/lang'
-import { createDomain } from 'effector'
-
-const lang = createDomain()
-
-export const setLang = lang.createEvent<AllowedLangs>()
+import { lang, setLang } from '.'
 
 export const $lang = lang
   .createStore(AllowedLangs.RU)

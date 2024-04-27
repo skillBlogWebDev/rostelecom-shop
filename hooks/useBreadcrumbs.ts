@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation'
 import { useCrumbText } from './useCrumbText'
 import { usePageTitle } from './usePageTitle'
 import { useLang } from './useLang'
+import { productCategories } from '@/constants/product'
 
 export const useBreadcrumbs = (page: string) => {
   const [dynamicTitle, setDynamicTitle] = useState('')
@@ -26,6 +27,10 @@ export const useBreadcrumbs = (page: string) => {
         return
       }
 
+      if (!productCategories.some((item) => item === productTypePathname)) {
+        return
+      }
+
       const text = (
         translations[lang][
           page === 'comparison' ? 'comparison' : 'breadcrumbs'
@@ -36,5 +41,5 @@ export const useBreadcrumbs = (page: string) => {
     }
   }, [breadcrumbs, crumbText, lang, pathname, translations, page])
 
-  return { getDefaultTextGenerator, getTextGenerator }
+  return { getDefaultTextGenerator, getTextGenerator, breadcrumbs }
 }

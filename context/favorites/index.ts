@@ -1,15 +1,27 @@
-import { createDomain, createEffect, sample } from 'effector'
+'use client'
+import { createDomain, createEffect } from 'effector'
 import toast from 'react-hot-toast'
 import { handleJWTError } from '@/lib/utils/errors'
 import { IAddProductToCartFx } from '@/types/cart'
 import {
+  IFavoriteItem,
   IAddProductsFromLSToFavoriteFx,
   IDeleteFavoriteItemsFx,
-  IFavoriteItem,
 } from '@/types/favorites'
-import api from '../api/apiInstance'
+import api from '@/api/apiInstance'
 
-const favorites = createDomain()
+export const favorites = createDomain()
+
+export const addProductToFavorites =
+  favorites.createEvent<Omit<IAddProductToCartFx, 'count'>>()
+export const loadFavoriteItems = favorites.createEvent<{ jwt: string }>()
+export const setFavoritesFromLS = favorites.createEvent<IFavoriteItem[]>()
+export const setIsAddToFavorites = favorites.createEvent<boolean>()
+export const addProductsFromLSToFavorites =
+  favorites.createEvent<IAddProductsFromLSToFavoriteFx>()
+export const setShouldShowEmptyFavorites = favorites.createEvent<boolean>()
+export const deleteProductFromFavorites =
+  favorites.createEvent<IDeleteFavoriteItemsFx>()
 
 export const getFavoriteItemsFx = createEffect(
   async ({ jwt }: { jwt: string }) => {
@@ -118,67 +130,3 @@ export const deleteFavoriteItemFx = createEffect(
     }
   }
 )
-
-export const addProductToFavorites =
-  favorites.createEvent<Omit<IAddProductToCartFx, 'count'>>()
-export const loadFavoriteItems = favorites.createEvent<{ jwt: string }>()
-export const setFavoritesFromLS = favorites.createEvent<IFavoriteItem[]>()
-export const setIsAddToFavorites = favorites.createEvent<boolean>()
-export const addProductsFromLSToFavorites =
-  favorites.createEvent<IAddProductsFromLSToFavoriteFx>()
-export const setShouldShowEmptyFavorites = favorites.createEvent<boolean>()
-export const deleteProductFromFavorites =
-  favorites.createEvent<IDeleteFavoriteItemsFx>()
-
-export const $favorites = favorites
-  .createStore<IFavoriteItem[]>([])
-  .on(getFavoriteItemsFx.done, (_, { result }) => result)
-  .on(addProductToFavoriteFx.done, (cart, { result }) => [
-    ...new Map(
-      [...cart, result.newFavoriteItem].map((item) => [item.clientId, item])
-    ).values(),
-  ])
-  .on(addProductsFromLSToFavoritesFx.done, (_, { result }) => result.items)
-  .on(deleteFavoriteItemFx.done, (state, { result }) =>
-    state.filter((item) => item._id !== result.id)
-  )
-
-export const $favoritesFromLS = favorites
-  .createStore<IFavoriteItem[]>([])
-  .on(setFavoritesFromLS, (_, favorites) => favorites)
-
-export const $isAddToFavorites = favorites
-  .createStore(false)
-  .on(setIsAddToFavorites, (_, value) => value)
-
-export const $shouldShowEmptyFavorites = favorites
-  .createStore(false)
-  .on(setShouldShowEmptyFavorites, (_, value) => value)
-
-sample({
-  clock: addProductToFavorites,
-  source: $favorites,
-  fn: (_, data) => data,
-  target: addProductToFavoriteFx,
-})
-
-sample({
-  clock: loadFavoriteItems,
-  source: $favorites,
-  fn: (_, data) => data,
-  target: getFavoriteItemsFx,
-})
-
-sample({
-  clock: addProductsFromLSToFavorites,
-  source: $favorites,
-  fn: (_, data) => data,
-  target: addProductsFromLSToFavoritesFx,
-})
-
-sample({
-  clock: deleteProductFromFavorites,
-  source: $favorites,
-  fn: (_, data) => data,
-  target: deleteFavoriteItemFx,
-})

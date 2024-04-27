@@ -15,6 +15,9 @@
 }
 
 .breadcrumbs__item__link {
+  display: inline-block;
+  min-width: 10px;
+  min-height: 11px;
   position: relative;
   color: rgba(255, 255, 255, 0.90);
   font-size: 13px;

@@ -1,0 +1,28 @@
+.watched_products {
+  padding-top: 40px;
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 32px;
+    width: 100%;
+    margin-bottom: 60px;
+
+    @media (max-width: 1150px) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    @media (max-width: 800px) {
+      grid-gap: 24px;
+    }
+
+    @media (max-width: 620px) {
+      grid-gap: 18px;
+    }
+
+    @media (max-width: 460px) {
+      grid-template-columns: 1fr;
+    }
+}
+}
