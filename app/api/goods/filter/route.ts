@@ -70,8 +70,7 @@ export async function GET(req: Request) {
       const getFilteredCollection = async (collection: string) => {
         const goods = await db
           .collection(collection)
-          .find()
-          .sort(sort as Sort)
+          .find(filter)
           .toArray()
 
         return goods
