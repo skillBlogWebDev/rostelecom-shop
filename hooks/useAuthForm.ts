@@ -23,9 +23,9 @@ export const useAuthForm = (
     if (isSideActive) {
       if (isConnected) {
         event({
-          name: user?.user.displayName,
-          email: user?.user.email,
-          password: user?.user.uid,
+          name: user?.displayName as string,
+          email: user?.email as string,
+          password: user?.uid as string,
           isOAuth: true,
         })
       }
@@ -34,7 +34,7 @@ export const useAuthForm = (
 
   const handleSignupWithOAuth = () =>
     connectWithPopup({
-      access_id: `${process.env.NEXT_PUBLIC_OAUTH_ACCESS_ID}`,
+      accessId: `${process.env.NEXT_PUBLIC_OAUTH_ACCESS_ID}`,
     })
 
   return {

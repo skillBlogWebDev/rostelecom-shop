@@ -44,7 +44,7 @@ export interface ICrumbProps {
   last: boolean
 }
 
-export interface OrderInfoBlock {
+export interface IOrderInfoBlockProps {
   isCorrectPromotionalCode?: boolean
   isOrderPage?: boolean
 }

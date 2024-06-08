@@ -197,7 +197,8 @@
       "max_15": "Max 2 characters!",
       "required_password": "Enter your password!",
       "min_4": "Min 4 characters!",
-      "max_20": "Max 20 characters!"
+      "max_20": "Max 20 characters!",
+      "max_255": "Max 255 characters!"
     },
     "order": {
       "agreement_text": "By clicking on the “Place an order” button, you consent to processing of ",
@@ -228,7 +229,7 @@
       "courier_delivery": "Courier delivery",
       "online_payment": "Online payment",
       "upon_receipt": "Upon receipt",
-      "payment_advice": "Select a payment method online or link a card in your personal account",
+      "payment_advice": "Select a payment method online or link a card in your <a href='/profile'>personal account</a>",
       "card_number": "Card number",
       "qr_code": "QR-Code",
       "cash_office": "By cash in the office",
@@ -239,7 +240,21 @@
       "phone_label": "Phone",
       "comment_label": "Comments on the order",
       "promocode": "Promocode",
-      "promo_code_text": "To take advantage of the discount, enter the promotional code"
+      "promo_code_text": "To take advantage of the discount, enter the promotional code",
+      "where_deliver_order": "Where should I deliver my order?",
+      "enter_address_on_map": "Enter the address on the map",
+      "map": "Map",
+      "delivery_will_be": "Delivery will be to this address",
+      "enter_address_on_map_or_search": "Enter the address on the map or find it using search",
+      "comments_order": "Comments on the order"
+    },
+    "payment_success": {
+      "thanks": "Thanks",
+      "thanks_text": "Thank you for the order!",
+      "order_info": "Your order 1-info for the amount of 2-info has been paid and accepted for assembly",
+      "order_description": "You can find out more about the status of your order by email or in your <a href=\"/profile\">personal account</a> in the store",
+      "continue_shopping": "Continue shopping",
+      "go_main": "Go to Main page"
     }
   },
   "ru": {
@@ -440,7 +455,8 @@
       "max_15": "Не более 15 символов!",
       "required_password": "Введите пароль!",
       "min_4": "Минимум 4 символа!",
-      "max_20": "Не более 20 символов!"
+      "max_20": "Не более 20 символов!",
+      "max_255": "Не более 255 символов!"
     },
     "order": {
       "agreement_text": "Нажимая на кнопку «Оформить заказ», вы даете согласие на обработку",
@@ -472,7 +488,7 @@
       "courier_delivery": "Доставка курьером",
       "online_payment": "Онлайн оплата",
       "upon_receipt": "При получении",
-      "payment_advice": "Выберите способ оплаты онлайн или привяжите карту в личном кабинете",
+      "payment_advice": "Выберите способ оплаты онлайн или привяжите карту в <a href='/profile'>личном кабинете</a>",
       "card_number": "Номер карты",
       "qr_code": "QR-Код",
       "cash_office": "Наличными в офисе или пвз",
@@ -483,7 +499,21 @@
       "phone_label": "Телефон",
       "comment_label": "Комментарий к заказу",
       "promocode": "Промокод",
-      "promo_code_text": "Чтобы воспользоваться скидкой введите промокод"
+      "promo_code_text": "Чтобы воспользоваться скидкой введите промокод",
+      "where_deliver_order": "Куда привезти заказ?",
+      "enter_address_on_map": "Укажите адрес на карте",
+      "map": "Карта",
+      "delivery_will_be": "Доставка будет по этому адресу",
+      "enter_address_on_map_or_search": "Укажите адрес на карте или найдите с помощью поиска",
+      "comments_order": "Комментарий к заказу"
+    },
+    "payment_success": {
+      "thanks": "Спасибо",
+      "thanks_text": "Спасибо за заказ!",
+      "order_info": "Ваш заказ 1-info на сумму 2-info оплачен и принят на сборку",
+      "order_description": "Подробнее о статусе заказа вы можете узнать на своей почте или в <a href=\"/profile\">личном кабинете</a> магазина",
+      "continue_shopping": "Продолжить покупки",
+      "go_main": "Перейти на главную"
     }
   }
 }

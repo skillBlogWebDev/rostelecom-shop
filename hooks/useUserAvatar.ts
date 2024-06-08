@@ -14,7 +14,7 @@ export const useUserAvatar = () => {
 
     const oauthAvatar = JSON.parse(
       localStorage.getItem(
-        '@@earthoOnespajs@@::l3Q4jO58IChQRwUkzkHI::default::undefined'
+        '@@oneclientjs@@::l3Q4jO58IChQRwUkzkHI::@@user@@'
       ) as string
     )
 
@@ -22,7 +22,7 @@ export const useUserAvatar = () => {
       return
     }
 
-    setSrc(oauthAvatar.body.decodedToken.user.user.photoURL)
+    setSrc(oauthAvatar.decodedToken.user.photoURL)
   }, [user.image])
 
   return { src, alt: user.name }

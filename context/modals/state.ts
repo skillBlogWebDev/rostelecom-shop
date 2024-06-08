@@ -13,6 +13,8 @@ import {
   showSizeTable,
   closeShareModal,
   openShareModal,
+  closeMapModal,
+  openMapModal,
 } from '.'
 
 export const $menuIsOpen = modals
@@ -44,3 +46,8 @@ export const $shareModal = modals
   .createStore(false)
   .on(openShareModal, () => true)
   .on(closeShareModal, () => false)
+
+export const $mapModal = modals
+  .createStore(false)
+  .on(openMapModal, () => true)
+  .on(closeMapModal, () => false)

@@ -10,6 +10,8 @@ import {
   updateCartItemCountFx,
   deleteProductFromCart,
   deleteCartItemFx,
+  deleteAllFromCart,
+  deleteAllFromCartFx,
 } from '.'
 import { $cart } from './state'
 
@@ -46,4 +48,11 @@ sample({
   source: $cart,
   fn: (_, data) => data,
   target: deleteCartItemFx,
+})
+
+sample({
+  clock: deleteAllFromCart,
+  source: {},
+  fn: (_, data) => data,
+  target: deleteAllFromCartFx,
 })

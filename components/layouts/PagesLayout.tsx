@@ -26,6 +26,7 @@ import '@/context/cart/init'
 import '@/context/comparison/init'
 import '@/context/favorites/init'
 import '@/context/user/init'
+import '@/context/order/init'
 
 const PagesLayout = ({ children }: { children: React.ReactNode }) => {
   const [isClient, setIsClient] = useState(false)
@@ -55,6 +56,7 @@ const PagesLayout = ({ children }: { children: React.ReactNode }) => {
     <>
       {isClient ? (
         <EarthoOneProvider
+          domain='1717860453864'
           clientId={`${process.env.NEXT_PUBLIC_OAUTH_CLIENT_ID}`}
         >
           <html lang='en'>
