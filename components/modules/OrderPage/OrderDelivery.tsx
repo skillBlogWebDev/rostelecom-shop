@@ -17,7 +17,7 @@ import {
 } from '@/context/order/state'
 import OrderTitle from './OrderTitle'
 import TabControls from './TabControls'
-import { setCourierTab, setMapInstance, setPickupTab, setShouldShowCourierAddressData } from '@/context/order'
+import { setCourierTab, setMapInstance, setPickupTab } from '@/context/order'
 import { basePropsForMotion } from '@/constants/motion'
 import { getGeolocationFx, setUserGeolocation } from '@/context/user'
 import { $userGeolocation } from '@/context/user/state'
@@ -181,10 +181,9 @@ const OrderDelivery = () => {
       handleResultsFound(e, searchMarkersManager, map)
     )
     //@ts-ignore
-    ttSearchBox.on('tomtom.searchbox.resultselected', (e) => {
+    ttSearchBox.on('tomtom.searchbox.resultselected', (e) =>
       handleResultSelection(e, searchMarkersManager, map)
-      setShouldShowCourierAddressData(false)
-    })
+    )
     ttSearchBox.on('tomtom.searchbox.resultscleared', () =>
       handleResultClearing(searchMarkersManager, map, userGeolocation)
     )

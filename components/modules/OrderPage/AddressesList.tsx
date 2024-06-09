@@ -5,6 +5,7 @@ import {
   getRostelecomOfficesByCityFx,
   setChosenPickupAddressData,
   setShouldLoadRostelecomData,
+  setShouldShowCourierAddressData,
 } from '@/context/order'
 import {
   $chosenPickupAddressData,
@@ -33,6 +34,7 @@ const AddressesList = ({
   const handleChosenAddressData = (data: Partial<IRostelecomAddressData>) => {
     setShouldLoadRostelecomData(false)
     setChosenPickupAddressData(data)
+    setShouldShowCourierAddressData(false)
   }
 
   return (
