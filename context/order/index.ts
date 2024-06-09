@@ -27,7 +27,6 @@ export const getRostelecomOfficesByCity =
 export const setCourierAddressData = order.createEvent<IRostelecomAddressData>()
 export const setOnlinePaymentTb = order.createEvent<boolean>()
 export const setCashPaymentTb = order.createEvent<boolean>()
-export const setScrollToRequiredBlock = order.createEvent<boolean>()
 export const makePayment = order.createEvent<IMakePaymentFx>()
 export const setOrderDetailsValues = order.createEvent<IOrderDetailsValues>()
 

@@ -21,14 +21,10 @@ import {
   $onlinePaymentTab,
   $orderDetailsValues,
   $pickupTab,
-  $scrollToRequiredBlock,
 } from '@/context/order/state'
-import {
-  makePayment,
-  makePaymentFx,
-  setScrollToRequiredBlock,
-} from '@/context/order'
+import { makePayment, makePaymentFx } from '@/context/order'
 import styles from '@/styles/order-block/index.module.scss'
+import toast from 'react-hot-toast'
 
 const OrderInfoBlock = ({
   isCorrectPromotionalCode,
@@ -42,7 +38,6 @@ const OrderInfoBlock = ({
   const pickupTab = useUnit($pickupTab)
   const chosenCourierAddressData = useUnit($chosenCourierAddressData)
   const chosenPickupAddressData = useUnit($chosenPickupAddressData)
-  const scrollToRequiredBlock = useUnit($scrollToRequiredBlock)
   const paymentSpinner = useUnit(makePaymentFx.pending)
   const checkboxRef = useRef() as MutableRefObject<HTMLInputElement>
   const priceWithDiscount = isCorrectPromotionalCode
@@ -51,6 +46,12 @@ const OrderInfoBlock = ({
   const orderDetailsValues = useUnit($orderDetailsValues)
 
   const handleAgreementChange = () => setIsUserAgree(!isUserAgree)
+
+  const scrollToBlock = (selector: HTMLLIElement) =>
+    window.scrollTo({
+      top: selector.getBoundingClientRect().top + window.scrollY + -50,
+      behavior: 'smooth',
+    })
 
   const handleTabCheckbox = (e: React.KeyboardEvent<HTMLLabelElement>) => {
     if (e.key == ' ' || e.code == 'Space') {
@@ -65,12 +66,17 @@ const OrderInfoBlock = ({
       !chosenCourierAddressData.address_line1 &&
       !chosenPickupAddressData.address_line1
     ) {
-      setScrollToRequiredBlock(!scrollToRequiredBlock)
+      const orderBlock = document.querySelector('.order-block') as HTMLLIElement
+      scrollToBlock(orderBlock)
+      toast.error('Нужно выбрать адрес!')
       return
     }
 
     if (!orderDetailsValues.isValid) {
-      setScrollToRequiredBlock(!scrollToRequiredBlock)
+      const detailsBlock = document.querySelector(
+        '.details-block'
+      ) as HTMLLIElement
+      scrollToBlock(detailsBlock)
       return
     }
 
