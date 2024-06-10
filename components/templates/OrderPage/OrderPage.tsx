@@ -2,7 +2,6 @@
 import { useUnit } from 'effector-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import Breadcrumbs from '@/components/modules/Breadcrumbs/Breadcrumbs'
 import OrderInfoBlock from '@/components/modules/OrderInfoBlock/OrderInfoBlock'
 import MapModal from '@/components/modules/OrderPage/MapModal'
@@ -19,6 +18,8 @@ import { useGoodsByAuth } from '@/hooks/useGoodsByAuth'
 import { useLang } from '@/hooks/useLang'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { isUserAuth } from '@/lib/utils/common'
+import { checkPaymentFx } from '@/context/order'
+import { handleDeleteAllFromCart } from '@/lib/utils/cart'
 import styles from '@/styles/order/index.module.scss'
 
 const OrderPage = () => {
@@ -27,7 +28,6 @@ const OrderPage = () => {
   const currentCartByAuth = useGoodsByAuth($cart, $cartFromLs)
   const isMedia1220 = useMediaQuery(1220)
   const mapModal = useUnit($mapModal)
-  const router = useRouter()
 
   useEffect(() => {
     clearCartByPayment()
@@ -40,7 +40,16 @@ const OrderPage = () => {
       return
     }
 
-    router.push('/payment-success')
+    const auth = JSON.parse(localStorage.getItem('auth') as string)
+    const data = await checkPaymentFx({ paymentId })
+
+    if (data) {
+      if (data.result.status === 'succeeded') {
+        handleDeleteAllFromCart(auth.accessToken)
+      }
+    }
+
+    localStorage.removeItem('paymentId')
   }
 
   return (
