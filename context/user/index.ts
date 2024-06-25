@@ -4,15 +4,18 @@ import { createDomain, createEffect } from 'effector'
 import api from '@/api/apiInstance'
 import { handleJWTError } from '@/lib/utils/errors'
 import { setIsAuth } from '../auth'
-import { IUserGeolocation } from '@/types/user'
+import { ILoginCheckFx, IUserGeolocation } from '@/types/user'
 import { IGetGeolocationFx } from '@/types/common'
 
 export const user = createDomain()
 
-export const loginCheck = user.createEvent<{ jwt: string }>()
+export const loginCheck = user.createEvent<ILoginCheckFx>()
 export const setUserGeolocation = user.createEvent<IUserGeolocation>()
+export const updateUsername = user.createEvent<string>()
+export const updateUserImage = user.createEvent<string>()
+export const updateUserEmail = user.createEvent<string>()
 
-export const loginCheckFx = createEffect(async ({ jwt }: { jwt: string }) => {
+export const loginCheckFx = createEffect(async ({ jwt }: ILoginCheckFx) => {
   try {
     const { data } = await api.get('/api/users/login-check', {
       headers: { Authorization: `Bearer ${jwt}` },

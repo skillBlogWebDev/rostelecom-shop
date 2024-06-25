@@ -27,7 +27,12 @@ export async function GET(req: Request) {
     return NextResponse.json({
       status: 200,
       message: 'token is valid',
-      user: { email: user.email, name: user.name, _id: user?._id },
+      user: {
+        email: user.email,
+        name: user.name,
+        _id: user?._id,
+        image: user.image,
+      },
     })
   } catch (error) {
     throw new Error((error as Error).message)

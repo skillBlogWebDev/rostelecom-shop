@@ -26,7 +26,9 @@
       "not_found_subtitle": "Our <a href=\"https://support.google.com/accounts/answer/61416\">secret service</a> is already investigating",
       "not_found_description": "The page will be found soon!",
       "not_found_bg": "Zone 404",
-      "order_price": "Order price"
+      "order_price": "Order price",
+      "write_code": "Enter the code from the letter",
+      "delete_account": "Delete account"
     },
     "header": {
       "menu_btn": "Menu",
@@ -284,7 +286,9 @@
       "not_found_subtitle": "Наша <a href=\"/\">секретная служба</a> уже ведет расследование",
       "not_found_description": "В ближайшее время страница будет найдена!",
       "not_found_bg": "Зона 404",
-      "order_price": "Сумма заказа"
+      "order_price": "Сумма заказа",
+      "write_code": "Введите код из письма",
+      "delete_account": "Удалить аккаунт"
     },
     "header": {
       "menu_btn": "Меню",

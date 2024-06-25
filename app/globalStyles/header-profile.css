@@ -50,6 +50,7 @@
 .header-profile__item__btn {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .header-profile__item__btn__icon {

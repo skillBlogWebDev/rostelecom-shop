@@ -5,6 +5,7 @@ import { useUserAvatar } from '@/hooks/useUserAvatar'
 import { IWrappedComponentProps } from '@/types/hocs'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { forwardRef } from 'react'
 
 const HeaderProfile = forwardRef<HTMLDivElement, IWrappedComponentProps>(
@@ -37,9 +38,12 @@ const HeaderProfile = forwardRef<HTMLDivElement, IWrappedComponentProps>(
             >
               <li className='header-profile__arrow' />
               <li className='header-profile__item'>
-                <button className='btn-reset header-profile__item__btn'>
+                <Link
+                  href='/profile'
+                  className='btn-reset header-profile__item__btn'
+                >
                   {translations[lang].header.profile}
-                </button>
+                </Link>
               </li>
               <li className='header-profile__item'>
                 <button

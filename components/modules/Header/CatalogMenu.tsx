@@ -37,10 +37,26 @@ const CatalogMenu = () => {
       name: translations[lang].main_menu.cloth,
       id: 1,
       items: [
-        translations[lang].comparison['t-shirts'],
-        translations[lang].comparison['long-sleeves'],
-        translations[lang].comparison.hoodie,
-        translations[lang].comparison.outerwear,
+        {
+          title: translations[lang].comparison['t-shirts'],
+          href: '/catalog/cloth?offset=0&type=t-shirts',
+          handleCloseMenu,
+        },
+        {
+          title: translations[lang].comparison['long-sleeves'],
+          href: '/catalog/cloth?offset=0&type=long-sleeves',
+          handleCloseMenu,
+        },
+        {
+          title: translations[lang].comparison.hoodie,
+          href: '/catalog/cloth?offset=0&type=hoodie',
+          handleCloseMenu,
+        },
+        {
+          title: translations[lang].comparison.outerwear,
+          href: '/catalog/cloth?offset=0&type=outerwear',
+          handleCloseMenu,
+        },
       ],
       handler: () => setActiveListId(1),
     },
@@ -48,9 +64,21 @@ const CatalogMenu = () => {
       name: translations[lang].main_menu.accessories,
       id: 2,
       items: [
-        translations[lang].comparison.bags,
-        translations[lang].comparison.headdress,
-        translations[lang].comparison.umbrella,
+        {
+          title: translations[lang].comparison.bags,
+          href: '/catalog/accessories?offset=0&type=bags',
+          handleCloseMenu,
+        },
+        {
+          title: translations[lang].comparison.headdress,
+          href: '/catalog/accessories?offset=0&type=headdress',
+          handleCloseMenu,
+        },
+        {
+          title: translations[lang].comparison.umbrella,
+          href: '/catalog/accessories?offset=0&type=umbrella',
+          handleCloseMenu,
+        },
       ],
       handler: () => setActiveListId(2),
     },
@@ -58,8 +86,16 @@ const CatalogMenu = () => {
       name: translations[lang].main_menu.souvenirs,
       id: 3,
       items: [
-        translations[lang].comparison['business-souvenirs'],
-        translations[lang].comparison['promotional-souvenirs'],
+        {
+          title: translations[lang].comparison['business-souvenirs'],
+          href: '/catalog/souvenirs?offset=0&type=business-souvenirs',
+          handleCloseMenu,
+        },
+        {
+          title: translations[lang].comparison['promotional-souvenirs'],
+          href: '/catalog/souvenirs?offset=0&type=promotional-souvenirs',
+          handleCloseMenu,
+        },
       ],
       handler: () => setActiveListId(3),
     },
@@ -67,8 +103,16 @@ const CatalogMenu = () => {
       name: translations[lang].main_menu.office,
       id: 4,
       items: [
-        translations[lang].comparison.notebook,
-        translations[lang].comparison.pen,
+        {
+          title: translations[lang].comparison.notebook,
+          href: '/catalog/office?offset=0&type=notebook',
+          handleCloseMenu,
+        },
+        {
+          title: translations[lang].comparison.pen,
+          href: '/catalog/office?offset=0&type=pen',
+          handleCloseMenu,
+        },
       ],
       handler: () => setActiveListId(4),
     },
@@ -174,16 +218,17 @@ const CatalogMenu = () => {
                           titleClass='btn-reset nav-menu__accordion__item__title'
                         >
                           <ul className='list-reset catalog__accordion__list'>
-                            {items.map((title, i) => (
+                            {items.map((item, i) => (
                               <li
                                 key={i}
                                 className='catalog__accordion__list__item'
                               >
                                 <Link
-                                  href='/catalog'
+                                  href={item.href}
                                   className='nav-menu__accordion__item__list__item__link'
+                                  onClick={item.handleCloseMenu}
                                 >
-                                  {title}
+                                  {item.title}
                                 </Link>
                               </li>
                             ))}

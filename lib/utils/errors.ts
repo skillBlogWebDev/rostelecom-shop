@@ -21,6 +21,14 @@ import {
   getFavoriteItemsFx,
 } from '@/context/favorites'
 import { makePaymentFx } from '@/context/order'
+import {
+  deleteUserFx,
+  editUserEmailFx,
+  editUsernameFx,
+  uploadUserAvatarFx,
+  verifyCodeFx,
+  verifyEmailFx,
+} from '@/context/profile'
 import { loginCheckFx } from '@/context/user'
 import {
   IAddProductToCartFx,
@@ -37,6 +45,14 @@ import {
   IDeleteFavoriteItemsFx,
 } from '@/types/favorites'
 import { IMakePaymentFx } from '@/types/order'
+import {
+  IDeleteUserFx,
+  IEditUserEmailFx,
+  IEditUsernameFx,
+  IUploadUserAvatarFx,
+  IVerifyCodeFx,
+  IVerifyEmailFx,
+} from '@/types/profile'
 
 export const handleJWTError = async (
   errorName: string,
@@ -62,6 +78,37 @@ export const handleJWTError = async (
             ...(payload as IAddProductToComparisonFx),
             jwt: newTokens.accessToken,
           })
+        case 'uploadUserAvatarFx':
+          return uploadUserAvatarFx({
+            ...(payload as IUploadUserAvatarFx),
+            jwt: newTokens.accessToken,
+          })
+        case 'editUsernameFx':
+          return editUsernameFx({
+            ...(payload as IEditUsernameFx),
+            jwt: newTokens.accessToken,
+          })
+        case 'verifyCodeFx':
+          return verifyCodeFx({
+            ...(payload as IVerifyCodeFx),
+            jwt: newTokens.accessToken,
+          })
+        case 'verifyEmailFx':
+          return verifyEmailFx({
+            ...(payload as IVerifyEmailFx),
+            jwt: newTokens.accessToken,
+          })
+        case 'editUserEmailFx':
+          return editUserEmailFx({
+            ...(payload as IEditUserEmailFx),
+            jwt: newTokens.accessToken,
+          })
+        case 'deleteUserFx':
+          deleteUserFx({
+            ...(payload as IDeleteUserFx),
+            jwt: newTokens.accessToken,
+          })
+          break
         case 'getComparisonItemsFx':
           return getComparisonItemsFx({
             jwt: newTokens.accessToken,

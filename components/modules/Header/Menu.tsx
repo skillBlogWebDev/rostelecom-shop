@@ -121,7 +121,10 @@ const Menu = () => {
   return (
     <nav className={`nav-menu ${menuIsOpen ? 'open' : 'close'}`}>
       <div className='container nav-menu__container'>
-        <div className={`nav-menu__logo ${menuIsOpen ? 'open' : ''}`}>
+        <div
+          className={`nav-menu__logo ${menuIsOpen ? 'open' : ''}`}
+          onClick={handleCloseMenu}
+        >
           <Logo />
         </div>
         <img

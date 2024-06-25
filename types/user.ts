@@ -19,3 +19,8 @@ export interface IUserGeolocation {
     },
   ]
 }
+
+export interface ILoginCheckFx {
+  jwt: string
+  setShouldShowContent?: (arg0: boolean) => void
+}
