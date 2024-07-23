@@ -31,6 +31,7 @@ import '@/context/favorites/init'
 import '@/context/user/init'
 import '@/context/order/init'
 import '@/context/profile/init'
+import '@/context/passwordRestore/init'
 
 const PagesLayout = ({ children }: { children: React.ReactNode }) => {
   const [isClient, setIsClient] = useState(false)

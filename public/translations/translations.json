@@ -28,7 +28,9 @@
       "not_found_bg": "Zone 404",
       "order_price": "Order price",
       "write_code": "Enter the code from the letter",
-      "delete_account": "Delete account"
+      "delete_account": "Delete account",
+      "send": "Send",
+      "save": "Save"
     },
     "header": {
       "menu_btn": "Menu",
@@ -257,6 +259,13 @@
       "order_description": "You can find out more about the status of your order by email or in your <a href=\"/profile\">personal account</a> in the store",
       "continue_shopping": "Continue shopping",
       "go_main": "Go to Main page"
+    },
+    "password_restore_page": {
+      "password_restore": "Password restore",
+      "enter_your_email": "Enter your Email",
+      "we_sent_code": "We sent the code to",
+      "creaete_pasword": "Create a new password",
+      "repeat_pasword": "Repeat pasword"
     }
   },
   "ru": {
@@ -288,7 +297,9 @@
       "not_found_bg": "Зона 404",
       "order_price": "Сумма заказа",
       "write_code": "Введите код из письма",
-      "delete_account": "Удалить аккаунт"
+      "delete_account": "Удалить аккаунт",
+      "send": "Отправить",
+      "save": "Сохранитть"
     },
     "header": {
       "menu_btn": "Меню",
@@ -518,6 +529,13 @@
       "order_description": "Подробнее о статусе заказа вы можете узнать на своей почте или в <a href=\"/profile\">личном кабинете</a> магазина",
       "continue_shopping": "Продолжить покупки",
       "go_main": "Перейти на главную"
+    },
+    "password_restore_page": {
+      "password_restore": "Восстановление пароля",
+      "enter_your_email": "Введите свой Email",
+      "we_sent_code": "Мы отправили код на почту",
+      "creaete_pasword": "Придумайте новый пароль",
+      "repeat_pasword": "Повторите пароль"
     }
   }
 }

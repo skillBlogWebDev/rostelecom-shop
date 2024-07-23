@@ -120,7 +120,7 @@ export const verifyCodeFx = profile.createEffect(
   async ({ jwt, code, codeId }: IVerifyCodeFx) => {
     try {
       const { data } = await api.post(
-        '/api/users/edit/email/verify-code',
+        '/api/users/verify-code',
         { code, codeId },
         {
           headers: { Authorization: `Bearer ${jwt}` },

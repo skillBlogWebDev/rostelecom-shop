@@ -1,13 +1,15 @@
+import Link from 'next/link'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { handleSignIn, singInFx } from '@/context/auth'
 import { useAuthForm } from '@/hooks/useAuthForm'
 import { IAuthSideProps, IInputs } from '@/types/authPopup'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import AuthPopupClose from './AuthPopupClose'
 import EmailInput from './EmailInput'
 import PasswordInput from './PasswordInput'
 import { useLang } from '@/hooks/useLang'
 import AuthPopupSocials from './AuthPopupSocials'
+import { handleCloseAuthPopup } from '@/lib/utils/common'
 
 const AuthPopupLogin = ({ toggleAuth, isSideActive }: IAuthSideProps) => {
   const { lang, translations } = useLang()
@@ -43,6 +45,13 @@ const AuthPopupLogin = ({ toggleAuth, isSideActive }: IAuthSideProps) => {
                   translations[lang].auth_popup.login_text
                 )}
               </button>
+              <Link
+                href='/password-restore'
+                className='inner__reset'
+                onClick={handleCloseAuthPopup}
+              >
+                {translations[lang].auth_popup.forgot_password}
+              </Link>
             </div>
             <div className='inner__bottom'>
               <span className='inner__bottom__text'>
@@ -53,7 +62,7 @@ const AuthPopupLogin = ({ toggleAuth, isSideActive }: IAuthSideProps) => {
                 className='btn-reset inner__switch'
                 onClick={toggleAuth}
               >
-                {translations[lang].auth_popup.register}!
+                {translations[lang].auth_popup.register}
               </button>
             </div>
           </div>

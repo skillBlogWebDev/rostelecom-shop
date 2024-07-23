@@ -225,12 +225,19 @@
   box-shadow: 10px 10px 36px rgb(0, 0, 0, 0.5), -13px -13px 23px rgba(255, 255, 255, 0.03);
 }
 
-.inner__switch {
-  color: #344d2e;
+.inner__reset {
+  margin-top: 10px;
+  display: block;
+  text-decoration: none;
+  color: #2b7a19;
 }
 
-.inner__switch:hover {
-  color: #2b7a19;
+.inner__switch {
+  color: #03A9F4;
+}
+
+.inner__reset:hover {
+  color: #344d2e;
   text-decoration: underline;
 }
 
