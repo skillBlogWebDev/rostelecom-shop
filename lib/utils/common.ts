@@ -12,6 +12,7 @@ import { setSizeTableSizes } from '@/context/sizeTable'
 import { loginCheck } from '@/context/user'
 import { ICartItem } from '@/types/cart'
 import { IProduct } from '@/types/common'
+import { resetProductBySearch } from '@/context/goods'
 
 export const removeOverflowHiddenFromBody = () => {
   const body = document.querySelector('body') as HTMLBodyElement
@@ -34,6 +35,7 @@ export const getWindowWidth = () => {
 export const handleCloseSearchModal = () => {
   closeSearchModal()
   removeOverflowHiddenFromBody()
+  resetProductBySearch()
 }
 
 export const shuffle = <T>(array: T[]) => {

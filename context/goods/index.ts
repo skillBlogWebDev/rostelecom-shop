@@ -1,5 +1,5 @@
 'use client'
-import { createDomain, createEffect } from 'effector'
+import { createDomain } from 'effector'
 import { createGate } from 'effector-react'
 import toast from 'react-hot-toast'
 import { handleShowSizeTable } from '@/lib/utils/common'
@@ -19,8 +19,22 @@ export const setCurrentProduct = goods.createEvent<IProduct>()
 export const loadOneProduct = goods.createEvent<ILoadOneProductFx>()
 export const loadProductsByFilter = goods.createEvent<ILoadProductsByFilterFx>()
 export const loadWatchedProducts = goods.createEvent<ILoadWatchedProductsFx>()
+export const loadProductBySearch = goods.createEvent<{ search: string }>()
+export const resetProductBySearch = goods.createEvent()
 
-export const loadOneProductFx = createEffect(
+export const loadProductBySearchFx = goods.createEffect(
+  async ({ search }: { search: string }) => {
+    try {
+      const { data } = await api.post('/api/goods/search', { search })
+
+      return data
+    } catch (error) {
+      toast.error((error as Error).message)
+    }
+  }
+)
+
+export const loadOneProductFx = goods.createEffect(
   async ({
     productId,
     category,
@@ -48,7 +62,7 @@ export const loadOneProductFx = createEffect(
   }
 )
 
-export const loadProductsByFilterFx = createEffect(
+export const loadProductsByFilterFx = goods.createEffect(
   async ({
     limit,
     offset,
@@ -70,7 +84,7 @@ export const loadProductsByFilterFx = createEffect(
   }
 )
 
-export const loadWatchedProductsFx = createEffect(
+export const loadWatchedProductsFx = goods.createEffect(
   async ({ payload }: ILoadWatchedProductsFx) => {
     try {
       const { data } = await api.post('/api/goods/watched', { payload })
@@ -82,13 +96,13 @@ export const loadWatchedProductsFx = createEffect(
   }
 )
 
-export const getNewProductsFx = createEffect(async () => {
+export const getNewProductsFx = goods.createEffect(async () => {
   const { data } = await api.get('/api/goods/new')
 
   return data
 })
 
-export const getBestsellerProductsFx = createEffect(async () => {
+export const getBestsellerProductsFx = goods.createEffect(async () => {
   const { data } = await api.get('/api/goods/bestsellers')
 
   return data
